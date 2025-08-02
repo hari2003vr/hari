@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Electronic - Product Data</title>
+
+    <!-- Tailwind & Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Bootstrap and Custom Static CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css'%}">
+    <link rel="stylesheet" href="{% static 'css/jquery.mCustomScrollbar.min.css'%}">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+
+    <style>
+      body { font-family: 'Inter', sans-serif; }
+      .product-image { max-width: 100px; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s ease-in-out; }
+      .product-image:hover { transform: scale(1.05); box-shadow: 0 6px 8px rgba(0,0,0,0.15); }
+      .table-container { overflow-x: auto; margin-bottom: 40px; }
+      .action-links { display: inline-flex; gap: 10px; }
+      .action-link { text-decoration: none; padding: 8px 16px; border-radius: 6px; transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; font-weight: 500; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+      .action-link:hover { transform: translateY(-2px); box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+      .action-link.update { background-color: #4299e1; color: white; }
+      .action-link.update:hover { background-color: #3182ce; }
+      .action-link.delete { background-color: #e53e3e; color: white; }
+      .action-link.delete:hover { background-color: #c53030; }
+      .add-product-link { position: fixed; bottom: 80px; right: 30px; background-color: #48bb78; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 18px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: background-color 0.3s ease, transform 0.1s ease; }
+      .add-product-link:hover { background-color: #38a169; transform: translateY(-2px); box-shadow: 0 6px 8px rgba(0,0,0,0.15); }
+      .footer-menu { position: fixed; bottom: 0; left: 0; width: 100%; background-color: #f7fafc; padding: 1rem; text-align: center; border-top: 1px solid #e2e8f0; box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.05); z-index: 10; }
+      .footer-menu ul { display: flex; justify-content: center; list-style: none; margin: 0; padding: 0; }
+      .footer-menu ul li { margin: 0 1rem; }
+      .footer-menu ul li a { color: #4a5568; text-decoration: none; transition: color 0.2s ease; }
+      .footer-menu ul li a:hover { color: #2d3748; }
+      @media (max-width: 768px) {
+        .add-product-link { font-size: 16px; padding: 10px 20px; bottom: 140px; right: 20px; }
+        .table-container { margin-bottom: 120px; }
+        .footer-menu ul li { margin: 0 0.5rem; }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <div class="banner_bg_main">
+      <div class="container">
+        <div class="header_section_top">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="custom_menu">
+                <ul>
+                  <li><a href="admin">Home</a></li>
+                                <li><a href="add_product">add_product</a></li>
+                                <li><a href="manage_product">manage_product</a></li>
+                                <li><a href="booking_details">bookingdetails</a></li>
+
+                                <li><a href="logout">Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="logo_section">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="logo"></div>
+            </div>
+          </div>
+        </div>
+        <div class="header_section">
+          <div class="containt_main">
+            <span class="toggle_icon" onclick="openNav()"><img src="{% static 'images/toggle-icon.png'%}" /></span>
+          </div>
+        </div>
+        <div class="banner_section layout_padding">
+          <div class="container">
+            <h1 class="text-3xl font-semibold text-gray-800 mb-6 text-center"></h1>
+            <div class="table-container">
+              <table class="min-w-full bg-white rounded-lg shadow-md">
+                <thead class="bg-gray-100">
+                  <tr>
+                    <th class="px-6 py-4 text-left text-sm font-semibold text-gray-500 uppercase tracking-wider">Name</th>
+                    <th class="px-6 py-4 text-left text-sm font-semibold text-gray-500 uppercase tracking-wider">Price</th>
+                    <th class="px-6 py-4 text-left text-sm font-semibold text-gray-500 uppercase tracking-wider">Quantity</th>
+                    <th class="px-6 py-4 text-left text-sm font-semibold text-gray-500 uppercase tracking-wider">Image</th>
+                    <th class="px-6 py-4 text-left text-sm font-semibold text-gray-500 uppercase tracking-wider">Actions</th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                  {% for i in data %}
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-md text-gray-900">{{ i.name }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-md text-gray-900">{{ i.price }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-md text-gray-900">{{ i.quantity }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-md text-gray-900">
+                      {% if i.image %}
+                      <img src="{{ i.image.url }}" alt="{{ i.name }}" class="product-image" />
+                      {% else %}
+                      <span class="text-gray-400 italic">No image</span>
+                      {% endif %}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                      <div class="action-links">
+                        <a href="update/{{ i.pk }}" class="action-link update">Update</a>
+                        <a href="dele/{{ i.pk }}" class="action-link delete">Delete</a>
+                      </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <a href="add_product" class="add-product-link">+Add New Product</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Scripts -->
+    <script src="{% static 'js/jquery.min.js'%}"></script>
+    <script src="{% static 'js/popper.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'js/jquery-3.0.0.min.js'%}"></script>
+    <script src="{% static 'js/plugin.js'%}"></script>
+    <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js'%}"></script>
+    <script src="{% static 'js/custom.js'%}"></script>
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+      }
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+    </script>
+  </body>
+</html>

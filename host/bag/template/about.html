@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      {% load static %}
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <meta name="keywords" content="" />
+      <meta name="description" content="" />
+      <meta name="author" content="" />
+      <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+      <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+      <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+      <link rel="icon" href="{% static 'images/fevicon.png' %}" type="image/gif" />
+      <link
+         rel="stylesheet"
+         href="{% static 'css/jquery.mCustomScrollbar.min.css' %}"
+      />
+      <link
+         rel="stylesheet"
+         href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+      />
+      <link
+         href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap"
+         rel="stylesheet"
+      />
+      <link
+         rel="stylesheet"
+         href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      />
+      <link
+         href="https://fonts.googleapis.com/css?family=Great+Vibes|Poppins:400,700&display=swap&subset=latin-ext"
+         rel="stylesheet"
+      />
+      <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" />
+      <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}" />
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+         media="screen"
+      />
+      <style>
+         /* Custom About Us styles */
+         .about-container {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 30px 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgb(0 0 0 / 0.1);
+            font-family: "Poppins", sans-serif;
+            color: #333;
+         }
+         .about-container h1 {
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #222;
+            text-align: center;
+         }
+         .about-container h3 {
+            margin-top: 30px;
+            color: #444;
+            font-weight: 600;
+         }
+         .about-container p {
+            line-height: 1.6;
+            font-size: 16px;
+            margin-bottom: 15px;
+         }
+         .about-container ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+         }
+         .about-container ul li {
+            margin-bottom: 10px;
+            font-size: 16px;
+         }
+         .about-container a {
+            color: #007bff;
+            text-decoration: none;
+         }
+         .about-container a:hover {
+            text-decoration: underline;
+         }
+         .social-icons a {
+            font-size: 24px;
+            margin-right: 15px;
+            color: #555;
+            transition: color 0.3s ease;
+         }
+         .social-icons a:hover {
+            color: #007bff;
+         }
+      </style>
+   </head>
+   <body>
+      <!-- Header Start -->
+      <div class="container">
+         <div class="header_section_top">
+            <div class="row">
+               <div class="col-sm-12">
+                  <div class="custom_menu">
+                     <ul>
+                        <li><a href="home">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="register">Register</a></li>
+                        <li><a href="log">Login</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="logo_section">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <div class="logo">
+                     <a href="#"><img src="{% static 'images/logo.png' %}" alt="Logo" /></a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Header End -->
+
+      <!-- About Us Start -->
+      <section class="about-container">
+         <h1>About Us</h1>
+
+         <p>
+            Welcome to <strong>Bag Hub</strong>!
+         </p>
+
+         <p>
+            We believe a great bag is more than just an accessory – it's an
+            essential part of your everyday life. At <strong>Bag Hub</strong>, we're
+            passionate about bringing you a curated collection of bags that
+            are both stylish and practical.
+         </p>
+
+         <h3>Our Story</h3>
+         <p>
+            Our journey started with a simple goal: to create a place where you
+            can easily find high-quality bags for every need. From daily
+            commutes to exciting adventures, we understand the importance of a
+            reliable and fashionable bag. That's why we carefully select each
+            item, focusing on great design, durable materials, and excellent
+            craftsmanship.
+         </p>
+
+         <h3>Our Promise</h3>
+         <ul>
+            <li>
+               <strong>Quality:</strong> We offer bags that are built to last,
+               made from the best materials.
+            </li>
+            <li>
+               <strong>Style:</strong> Our collection features a variety of
+               designs to suit every taste and occasion.
+            </li>
+            <li>
+               <strong>Customer Happiness:</strong> Your satisfaction is our top
+               priority. We're here to help you find your perfect bag!
+            </li>
+         </ul>
+
+         <h3>Connect With Us</h3>
+         <p>Got a question? We'd love to hear from you!</p>
+         <p>
+            Email:
+            <a href="mailto:[Your Email Address]">[Your Email Address]</a>
+         </p>
+         <p class="social-icons">
+            Follow us:
+            <a href="[Your Instagram Link]" target="_blank"
+               ><i class="fa fa-instagram"></i
+            ></a>
+            <a href="[Your Facebook Link]" target="_blank"
+               ><i class="fa fa-facebook"></i
+            ></a>
+         </p>
+
+         <p>
+            Thank you for choosing <strong>Bag Hub</strong>. We hope
+            you find a bag you'll love!
+         </p>
+      </section>
+      <!-- About Us End -->
+
+      <div class="footer_section layout_padding">
+         <div class="container">
+            <div class="footer_logo">
+               <a href="#"><img src="{% static 'images/logo.png' %}" alt="Logo" /></a>
+            </div>
+            <div class="footer_menu"></div>
+         </div>
+      </div>
+
+      <script src="{% static 'js/jquery.min.js' %}"></script>
+      <script src="{% static 'js/popper.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+      <script src="{% static 'js/plugin.js' %}"></script>
+      <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+      <script src="{% static 'js/custom.js' %}"></script>
+      <script>
+         function openNav() {
+           document.getElementById("mySidenav").style.width = "250px";
+         }
+
+         function closeNav() {
+           document.getElementById("mySidenav").style.width = "0";
+         }
+      </script>
+   </body>
+</html>

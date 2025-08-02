@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@tailwindcss/browser@latest"></script>
+    <style>
+      .menu-item a {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+</head>
+<body class="bg-gray-900 font-inter text-gray-200">
+    <div class="flex flex-col items-center justify-start min-h-screen py-10">
+        <div class="bg-gray-800 rounded-lg shadow-xl p-8 w-full max-w-md transition-transform hover:scale-105">
+            <h1 class="text-3xl font-semibold text-center bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text mb-8">Admin Dashboard</h1>
+            <div class="space-y-6">
+                <div class="menu-item">
+                    <a href="add_product" class="block w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl transition duration-300 ease-in-out font-semibold text-center shadow-md hover:shadow-lg transform hover:translate-y-1">
+                        Add Product
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a href="manage_product" class="block w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl transition duration-300 ease-in-out font-semibold text-center shadow-md hover:shadow-lg transform hover:translate-y-1">
+                        Manage Products
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a href="booking_details" class="block w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl transition duration-300 ease-in-out font-semibold text-center shadow-md hover:shadow-lg transform hover:translate-y-1">
+                        Delivery_view
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a href="alert" class="block w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl transition duration-300 ease-in-out font-semibold text-center shadow-md hover:shadow-lg transform hover:translate-y-1">
+                        alert
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a href="display_details" class="block w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl transition duration-300 ease-in-out font-semibold text-center shadow-md hover:shadow-lg transform hover:translate-y-1">
+                        User Register Details
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <a href="logout" class="block w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl transition duration-300 ease-in-out font-semibold text-center shadow-md hover:shadow-lg transform hover:translate-y-1">
+                        Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

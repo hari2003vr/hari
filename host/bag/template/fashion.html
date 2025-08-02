@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <div class="breadcrumb-area">
+            <div class="container">
+                <div class="breadcrumb-content">
+                    <h2>ADD PRODUCT</h2>
+                    <ul>
+                        <li><a href="index.html">Admin</a></li>
+                        <li class="active">Add Product</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Uren's Breadcrumb Area End Here -->
+        <!-- Begin Uren's Login Register Area -->
+        <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="login-form">
+                                <h4 class="login-title">Add Product</h4>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Name</label>
+                                        <input type="text" name="a1">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label>Price</label>
+                                        <input type="number" name="a2">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label>Quantity</label>
+                                        <input type="number" name="a3">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label>Image</label>
+                                        <input type="file" name="a4">
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="uren-register_btn">ADD</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+</body>
+</html>

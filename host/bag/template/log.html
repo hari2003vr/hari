@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Wishlist</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .login {
+            padding: 30px;
+            margin-top: 50px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        .gallery {
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card {
+            width: 300px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-img-top {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .card-text {
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+        .btn-danger {
+            width: 100%;
+        }
+        h1 {
+            margin-top: 100px;
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header + Banner Section -->
+    <div class="banner_bg_main">
+        <div class="container">
+            <div class="header_section_top">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="custom_menu">
+                            <ul>
+                              <li><a href="user_prooduct">Home</a></li>
+                                <li><a href="wishview">wishlist</a></li>
+                                <li><a href="user_log">product</a></li>
+                                <li><a href="cartview">Cart</a></li>
+                                 <li><a href="myorder">myorders</a></li>
+                                <li><a href="logout">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logo -->
+            <div class="logo_section">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="logo">
+                            <!-- Add logo here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="header_section">
+                <div class="containt_main">
+                    <span class="toggle_icon" onclick="openNav()"><img src="{% static 'images/toggle-icon.png' %}" alt=""></span>
+
+                    <div class="header_box">
+                        <div class="lang_box">
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item">
+                                    <img src="{% static 'images/flag-france.png' %}" class="mr-2" alt="flag"> French
+                                </a>
+                            </div>
+                        </div>
+                        <div class="login_menu">
+                            <!-- Add login menu here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Banner -->
+            <div class="banner_section layout_padding">
+                <div id="my_slider" class="carousel slide" data-ride="carousel">
+
+                        <div class="carousel-item active">
+                            <h1 class="banner_taital">Welcome<br>To Our Wishlist</h1>
+                        </div>
+                        <div class="carousel-item">
+                            <h1 class="banner_taital">Welcome<br>To Our Wishlist</h1>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wishlist Section -->
+    {% if data %}
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-10 col-lg-8 col-xl-7">
+                <div class="login">
+                    <h4 class="login-title text-center">Your Wishlist</h4><br>
+                    <div class="gallery">
+                        {% for i in data %}
+                        <div class="card">
+                            <img class="card-img-top" src="{{ i.product_details.image.url }}" alt="{{ i.product_details.name }} image">
+                            <div class="card-body">
+                                <h4 class="card-title">{{ i.product_details.name }}</h4>
+                                <p class="card-text">Price: ${{ i.product_details.price }}</p>
+                                <a href="reme/{{ i.pk }}" class="btn btn-danger" onclick="return confirm('Are You Sure You Want to Delete This?')">Remove</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <h1 class="text-center mt-5">Wishlist Empty</h1>
+    {% endif %}
+
+    <!-- Scripts -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</body>
+</html>
